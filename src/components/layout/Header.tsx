@@ -1,20 +1,23 @@
 import React from "react";
 import Button from "../ui/Button";
 import Container from "./Container";
+import Image from "next/image";
 
 const Header = () => {
   return (
     <Container>
       <header className="flex items-center justify-between gap-2 px-4 py-4">
-        <div>CarHunt</div>
+        <div className="">
+            <Image src={"logo.svg"} width={150} height={50} alt="car logo" ></Image>
+        </div>
         <nav className="">
-          <ul className=" flex gap-4 ">
-            <li>Rental deals</li>
-            <li>Favorite cars</li>
+          <ul className=" flex gap-8  font-semibold text-title  ">
+            <li className="hover:text-primary cursor-pointer">Rental deals</li>
+            <li className="hover:text-primary cursor-pointer">Favorite cars</li>
           </ul>
         </nav>
         <div>
-          <Button  className="!px-6">sign in</Button>
+          <Button className="!px-6 !py-3">sign in</Button>
         </div>
       </header>
     </Container>

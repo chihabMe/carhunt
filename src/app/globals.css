@@ -7,3 +7,8 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
+
+.hero__image-overlay {
+    @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-primary bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
+
+}
