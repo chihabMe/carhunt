@@ -40,6 +40,42 @@ const initialCars: ICar[] = [
     seats: 2,
     transition: "automatic",
   },
+  {
+    id: "5",
+    name: "toyota hilix",
+    cost: 50,
+    image: "/hero.png",
+    MPG: 22,
+    seats: 4,
+    transition: "manual",
+  },
+  {
+    id: "6",
+    name: "honda accord",
+    cost: 44,
+    image: "/hero.png",
+    MPG: 20,
+    seats: 4,
+    transition: "automatic",
+  },
+  {
+    id: "7",
+    name: "toyota prius",
+    cost: 55,
+    image: "/hero.png",
+    MPG: 24,
+    seats: 5,
+    transition: "automatic",
+  },
+  {
+    id: "8",
+    name: "ferrari",
+    cost: 85,
+    image: "/hero.png",
+    MPG: 30,
+    seats: 2,
+    transition: "automatic",
+  },
 ];
 
 const CarsList = () => {
