@@ -9,9 +9,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens:{
+        "llg":"1120px"
+      },
       colors:{
         "primary":"#2c5aff",
-        "title":"#26272f",
+        "title":"#262722",
         "text":"#26272f",
         "dark-bg":"#000000",
         "light-bg":"#ffffff",

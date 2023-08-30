@@ -8,7 +8,7 @@ import useSearchContext from "@/context/search.context";
 
 const Filter = () => {
   return (
-    <div className="flex items-center w-full mx-auto max-w-screen-lg justify-between  gap-2 py-4 ">
+    <div className="flex items-center w-full mx-auto max-w-screen-llg justify-between  gap-2 py-4 ">
       <FilterSearch />
       <FilterFilters />
     </div>
@@ -56,12 +56,23 @@ const FilterSearch = () => {
           alt="car image"
           className=""
         />
-        <FilterList className="bg-transparent outline-none  shadow-none"  choices={models} selected={model} setSelected={setModel} />
+        <FilterList
+          className="bg-transparent outline-none  shadow-none"
+          choices={models}
+          selected={model}
+          setSelected={setModel}
+        />
+
+        <SearchButton />
       </div>
-      <Button className="  !px-2.5 !py-2.5 !bg-light-bg  dark:!bg-dark-bg  !rounded-full group hover:!bg-primary transition-all duration-200">
-        <MagnifyingGlassIcon className="w-5 h-5 text-primary font-bold group-hover:text-white transition-all duration-200 " />
-      </Button>
     </div>
+  );
+};
+const SearchButton = () => {
+  return (
+    <Button className="  !px-2.5 !py-2.5 !bg-light-bg  dark:!bg-dark-bg  !rounded-full group hover:!bg-primary transition-all duration-200">
+      <MagnifyingGlassIcon className="w-5 h-5 text-primary font-bold group-hover:text-white transition-all duration-200 " />
+    </Button>
   );
 };
 
