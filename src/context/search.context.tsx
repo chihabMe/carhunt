@@ -19,7 +19,7 @@ interface SearchContextState {
   setQuery: (value: string) => void;
   setModel: (value: string) => void;
   isLoading: boolean;
-  search: (value: string) => void;
+  search: () => void;
 }
 
 const initialCars: ICar[] = [
@@ -141,23 +141,24 @@ export const SearchContextProvider = ({
   const [cars, setCars] = useState(initialState.cars);
   const [isLoading, setIsLoading] = useState(false);
   const search = () => {
-    setCars((prev) => prev.filter((item) => item.name.includes(query)));
+    if (query.trim() == "") setCars(initialState.cars);
+    else setCars((prev) => initialCars.filter((item) => item.name.includes(query)));
   };
   const handleChangeYear = () => {
-    setCars((prev) => prev.filter((item) => item.builtYear == year));
+    setCars((prev) => initialCars.filter((item) => item.builtYear == year));
   };
   const handleChangeEngine = () => {
-    setCars((prev) => prev.filter((item) => item.engine == engine));
+    setCars((prev) => initialCars.filter((item) => item.engine == engine));
   };
-  useEffect(() => {
-    handleChangeYear();
-  }, [year, setYear]);
+//   useEffect(() => {
+//     handleChangeYear();
+//   }, [year, setYear]);
 
-  useEffect(() => {
-    handleChangeEngine();
-  }, [engine, setEngine]);
+//   useEffect(() => {
+//     handleChangeEngine();
+//   }, [engine, setEngine]);
 
-  const value:SearchContextState = {
+  const value: SearchContextState = {
     year,
     engine,
     query,

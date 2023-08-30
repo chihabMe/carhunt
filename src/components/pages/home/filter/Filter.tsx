@@ -32,12 +32,20 @@ const FilterFilters = () => {
 };
 const models = ["mazda", "toyota", "ferrari"];
 const FilterSearch = () => {
-  const { query, model, setQuery, setModel } = useSearchContext();
+  const { query, search, model, setQuery, setModel } = useSearchContext();
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.currentTarget.value);
   };
+  const handleFormSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log("r")
+    search();
+  };
   return (
-    <div className="flex py-2  items-center gap-2 bg-gray-100 rounded-full px-8 max-w-[680px]">
+    <form
+      onSubmit={handleFormSubmit}
+      className="flex py-2  items-center gap-2 bg-gray-100 rounded-full px-8 max-w-[680px]"
+    >
       <div className="flex gap-4 items-center">
         <WrenchIcon className="w-5 h-5 text-gray-500" />
         <input
@@ -65,7 +73,7 @@ const FilterSearch = () => {
 
         <SearchButton />
       </div>
-    </div>
+    </form>
   );
 };
 const SearchButton = () => {
