@@ -10,8 +10,8 @@ const CarCard = (props: Props) => {
   return (
     <div className="rounded-2xl cursor-pointer py-6 px-4 bg-gray-100 group hover:bg-light-bg  transition-all duration-300 hover:shadow-md  ">
       <div className="flex justify-between items-center">
-        <h3 className="font-bold text-lg capitalize text-title">
-          {props.car.model}
+        <h3 className="font-bold  capitalize text-title">
+          {props.car.make} {props.car.model}
         </h3>
         <Button className="bg-transparent transition-all duration-300 active:!ring-red-400 group !p-1 rounded-full">
           <HeartIcon className="w-6 h-6  transition-all duration-300  group-active:text-red-400 text-gray-400" />

@@ -16,7 +16,8 @@ const Filter = ({ mode }: { mode: "ssr" | "csr" }) => {
     </div>
   );
 };
-const builtYears = ["year", 2001, 2002, 2003];
+const builtYears:any[] = ["year"];
+for (let i = 0; i <= 23; i++) builtYears.push(2000 + i);
 const engineType = ["engine", "gas", "fuel", "electric"];
 const FilterFilters = () => {
   const { year, engine, setEngine, setYear } = useSearchContext();
