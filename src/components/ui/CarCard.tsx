@@ -11,7 +11,7 @@ const CarCard = (props: Props) => {
     <div className="rounded-2xl cursor-pointer py-6 px-4 bg-gray-100 group hover:bg-light-bg  transition-all duration-300 hover:shadow-md  ">
       <div className="flex justify-between items-center">
         <h3 className="font-bold text-lg capitalize text-title">
-          {props.car.name}
+          {props.car.model}
         </h3>
         <Button className="bg-transparent transition-all duration-300 active:!ring-red-400 group !p-1 rounded-full">
           <HeartIcon className="w-6 h-6  transition-all duration-300  group-active:text-red-400 text-gray-400" />
@@ -24,23 +24,28 @@ const CarCard = (props: Props) => {
       </div>
       <div className="w-full flex justify-center py-2">
         <Image
-          alt={`${props.car.name} image`}
+          alt={`${props.car.model} image`}
           className="object-contain"
           width={200}
           height={200}
-          src={props.car.image}
+          src={props.car.image ?? "/hero.png"}
         />
       </div>
       <div className="min-h-[60px]">
-        <div className="flex justify-around gap-2 text-title text-sm py-4 font-medium capitalize group-hover:hidden transition-all duration-300">
-          <div className="flex flex-col gap-2">
-            <span>{props.car.seats} seats</span>
+        <div className="flex  justify-around gap-2 text-title text-xs font-medium py-4  capitalize group-hover:hidden transition-all duration-300">
+          <div className="flex flex-col gap-2 items-center justify-center ">
+            <span className="font-bold">built year</span>
+            <span>{props.car.year}</span>
           </div>
-          <div className="flex flex-col gap-2">
-            <span>{props.car.transition}</span>
+          <div className="flex flex-col gap-2 items-center justify-center ">
+            <span className="font-bold" >transition</span>
+            <span>{props.car.transmission}</span>
           </div>
-          <div className="flex flex-col gap-2">
-            <span>{props.car.MPG}MPG</span>
+          <div className="flex flex-col gap-2 items-center justify-center ">
+            <span className="font-bold" >city/highway</span>
+            <span>
+              {props.car.cityMpg}/{props.car.highwayMpg}
+            </span>
           </div>
         </div>
         <div className="w-full justify-center hidden group-hover:flex transition-all duration-300 py-2">

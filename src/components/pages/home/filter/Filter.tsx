@@ -5,18 +5,20 @@ import Image from "next/image";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import FilterList from "./FilterList";
 import useSearchContext from "@/context/search.context";
+import { usePathname, useRouter } from "next/navigation";
+import queryBuilder from "@/lib/searchQueryBuilder";
 
-const Filter = () => {
+const Filter = ({ mode }: { mode: "ssr" | "csr" }) => {
   return (
     <div className="flex items-center w-full mx-auto max-w-screen-llg justify-between  gap-2 py-4 ">
-      <FilterSearch />
+      <FilterSearch mode={mode} />
       <FilterFilters />
     </div>
   );
 };
+const builtYears = ["year", 2001, 2002, 2003];
+const engineType = ["engine", "gas", "fuel", "electric"];
 const FilterFilters = () => {
-  const builtYears = [2001, 2002, 2003];
-  const engineType = ["gas", "fuel", "electric"];
   const { year, engine, setEngine, setYear } = useSearchContext();
 
   return (
@@ -30,16 +32,26 @@ const FilterFilters = () => {
     </div>
   );
 };
-const models = ["mazda", "toyota", "ferrari"];
-const FilterSearch = () => {
-  const { query, search, model, setQuery, setModel } = useSearchContext();
+const makes = ["mazda", "toyota", "ferrari"];
+const FilterSearch = ({ mode }: { mode: "ssr" | "csr" }) => {
+  const router = useRouter();
+  const { query, year, engine, search, make, setQuery, setMake } =
+    useSearchContext();
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.currentTarget.value);
   };
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log("r")
-    search();
+
+    const newQuery = queryBuilder({
+      model: query,
+      year,
+      //@ts-ignore
+      fuel_type: engine == "engine" ? null : engine,
+      make: make == "make" ? null : make,
+    });
+    if (mode == "csr") search();
+    else router.push(`/search${newQuery}`);
   };
   return (
     <form
@@ -51,7 +63,7 @@ const FilterSearch = () => {
         <input
           onChange={handleNameChange}
           type="text"
-          name="name"
+          name="query"
           placeholder="Car Name.."
           className="outline-none bg-transparent font-medium text-text"
         />
@@ -66,9 +78,9 @@ const FilterSearch = () => {
         />
         <FilterList
           className="bg-transparent outline-none  shadow-none"
-          choices={models}
-          selected={model}
-          setSelected={setModel}
+          choices={makes}
+          selected={make}
+          setSelected={setMake}
         />
 
         <SearchButton />

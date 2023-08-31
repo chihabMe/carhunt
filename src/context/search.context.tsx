@@ -9,120 +9,31 @@ import {
   useEffect,
 } from "react";
 interface SearchContextState {
-  year: number;
-  engine: EngineTypes;
+  year: number|null;
+  engine: EngineTypes|null;
   query: string;
-  model: string;
+  make: string;
   cars: ICar[];
   setYear: (value: number) => void;
   setEngine: (value: EngineTypes) => void;
   setQuery: (value: string) => void;
-  setModel: (value: string) => void;
+  setMake: (value: string) => void;
   isLoading: boolean;
   search: () => void;
 }
 
-const initialCars: ICar[] = [
-  {
-    id: "1",
-    name: "toyota hilix",
-    cost: 50,
-    image: "/hero.png",
-    MPG: 22,
-    seats: 4,
-    transition: "manual",
-    builtYear: 2002,
-    engine: "fuel",
-  },
-  {
-    id: "2",
-    name: "honda accord",
-    cost: 44,
-    image: "/hero.png",
-    MPG: 20,
-    seats: 4,
-    transition: "automatic",
-    builtYear: 2022,
-    engine: "fuel",
-  },
-  {
-    id: "3",
-    name: "tesla model x",
-    cost: 55,
-    image: "/hero.png",
-    MPG: 20,
-    seats: 5,
-    transition: "automatic",
-    builtYear: 2022,
-    engine: "electric",
-  },
-  {
-    id: "4",
-    name: "ferrari",
-    cost: 85,
-    image: "/hero.png",
-    MPG: 30,
-    seats: 2,
-    transition: "automatic",
-    builtYear: 2015,
-    engine: "gas",
-  },
-  {
-    id: "5",
-    name: "toyota hilix",
-    cost: 50,
-    image: "/hero.png",
-    MPG: 22,
-    seats: 4,
-    transition: "manual",
-    builtYear: 2015,
-    engine: "gas",
-  },
-  {
-    id: "6",
-    name: "honda accord",
-    cost: 44,
-    image: "/hero.png",
-    MPG: 20,
-    seats: 4,
-    transition: "automatic",
-    builtYear: 2015,
-    engine: "gas",
-  },
-  {
-    id: "7",
-    name: "toyota prius",
-    cost: 55,
-    image: "/hero.png",
-    MPG: 24,
-    seats: 5,
-    transition: "automatic",
-    builtYear: 2015,
-    engine: "gas",
-  },
-  {
-    id: "8",
-    name: "ferrari",
-    cost: 85,
-    image: "/hero.png",
-    MPG: 30,
-    seats: 2,
-    transition: "automatic",
-    builtYear: 2015,
-    engine: "gas",
-  },
-];
+const initialCars: ICar[] = [];
 
 const initialState: SearchContextState = {
-  engine: "fuel",
-  model: "Model",
+  engine: null,
+  make: "make",
   query: "",
-  year: 0,
+  year: null,
   cars: initialCars,
   setYear: () => {},
   setEngine: () => {},
   setQuery: () => {},
-  setModel: () => {},
+  setMake: () => {},
   isLoading: false,
   search: () => {},
 };
@@ -137,7 +48,7 @@ export const SearchContextProvider = ({
   const [year, setYear] = useState(initialState.year);
   const [engine, setEngine] = useState(initialState.engine);
   const [query, setQuery] = useState(initialState.query);
-  const [model, setModel] = useState(initialState.model);
+  const [make, setMake] = useState(initialState.make);
   const [cars, setCars] = useState(initialState.cars);
   const [isLoading, setIsLoading] = useState(false);
   const search = () => {
@@ -162,11 +73,11 @@ export const SearchContextProvider = ({
     year,
     engine,
     query,
-    model,
+    make,
     setYear,
     setEngine,
     setQuery,
-    setModel,
+    setMake,
     search,
     cars,
     isLoading,

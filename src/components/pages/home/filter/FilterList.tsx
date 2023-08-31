@@ -15,7 +15,7 @@ const FilterList = (props: Props) => {
       <Listbox value={props.selected} onChange={props.setSelected}>
         <div className="relative mt-1">
           <Listbox.Button className={ `${props.className} font-medium relative w-full cursor-default rounded-lg bg-light-bg dark:bg-dark-bg py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm capitalize` }>
-            <span className="block truncate">{props.selected}</span>
+            <span className="block truncate">{props.selected??props.choices[0]}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <ChevronUpDownIcon
                 className="h-5 w-5 text-gray-400"
@@ -34,7 +34,7 @@ const FilterList = (props: Props) => {
                 <Listbox.Option
                   key={personIdx}
                   className={({ active }) =>
-                    `relative rounded-md cursor-default select-none py-2 pl-10 pr-4 ${
+                    `relative capitalize rounded-md cursor-default select-none py-2 pl-10 pr-4 ${
                       active ? "bg-blue-300 text-white" : "text-title"
                     }`
                   }
