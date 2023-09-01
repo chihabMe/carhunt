@@ -25,7 +25,7 @@ const CarCard = (props: Props) => {
       <div className="w-full flex justify-center py-2">
         <Image
           alt={`${props.car.model} image`}
-          className="object-contain"
+          className="w-[190px] h-[130px]"
           width={200}
           height={200}
           src={props.car.image ?? "/hero.png"}

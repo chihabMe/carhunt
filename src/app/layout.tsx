@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { SearchContextProvider } from "@/context/search.context";
+import ProgressBarProvider from "@/components/layout/ProgressBarProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,8 +21,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`bg-light-bg dark:bg-dark-bg${inter.className}`}>
         <SearchContextProvider>
-          <Header />
-          {children}
+          <ProgressBarProvider>
+            <Header />
+            {children}
+          </ProgressBarProvider>
         </SearchContextProvider>
       </body>
     </html>

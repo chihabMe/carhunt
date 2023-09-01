@@ -4,7 +4,7 @@ import { MagnifyingGlassIcon, WrenchIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import FilterList from "./FilterList";
-import useSearchContext from "@/context/search.context";
+import { useSearchContext } from "@/context/search.context";
 import { usePathname, useRouter } from "next/navigation";
 import queryBuilder from "@/lib/searchQueryBuilder";
 
@@ -18,25 +18,21 @@ const Filter = () => {
 };
 const builtYears: any[] = ["year"];
 for (let i = 0; i <= 23; i++) builtYears.push(2000 + i);
-const engineType = ["engine", "gas", "fuel", "electric"];
+const fuelTypes = ["fuel", "gas", "fuel", "electric"];
 const FilterFilters = () => {
-  const { year, engine, setEngine, setYear } = useSearchContext();
+  const { year, fuel, setFuel, setYear } = useSearchContext();
 
   return (
     <div className="flex relative gap-2">
       <FilterList selected={year} setSelected={setYear} choices={builtYears} />
-      <FilterList
-        selected={engine}
-        setSelected={setEngine}
-        choices={engineType}
-      />
+      <FilterList selected={fuel} setSelected={setFuel} choices={fuelTypes} />
     </div>
   );
 };
 const makes = ["mazda", "toyota", "ferrari"];
 const FilterSearch = () => {
   const router = useRouter();
-  const { query, year, engine, search, make, setQuery, setMake } =
+  const { query, year, fuel, search, make, setQuery, setMake } =
     useSearchContext();
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.currentTarget.value);
@@ -48,7 +44,7 @@ const FilterSearch = () => {
       model: query.trim() == "" ? " " : query,
       year,
       //@ts-ignore
-      fuel_type: engine == "engine" ? null : engine,
+      fuel_type: fuel == "fuel" ? null : fuel,
       make: make == "make" ? null : make,
     });
     router.push(`/search${newQuery}`);
@@ -61,6 +57,7 @@ const FilterSearch = () => {
       <div className="flex gap-4 items-center">
         <WrenchIcon className="w-5 h-5 text-gray-500" />
         <input
+          value={query}
           onChange={handleNameChange}
           type="text"
           name="query"

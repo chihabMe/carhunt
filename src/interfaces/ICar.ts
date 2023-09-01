@@ -1,4 +1,4 @@
-import EngineTypes from "@/types/EngineType";
+import EngineTypes from "@/types/FuelType";
 
 interface ICar {
   id: string;
