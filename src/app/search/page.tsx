@@ -1,4 +1,3 @@
-import CarsList from "@/components/pages/home/carsList/CarsList";
 import CarCard from "@/components/ui/CarCard";
 import ICar from "@/interfaces/ICar";
 import queryBuilder from "@/lib/searchQueryBuilder";
@@ -29,11 +28,7 @@ const SearchPage = async ({ searchParams }: SearchProps) => {
   try {
     cars = camelize(await getCars(searchParams));
   } catch (err) {
-    return (
-      <main>
-        <h1 className="text-red-400 font-bold text-center">error</h1>
-      </main>
-    );
+    return <h1 className="text-red-400 font-bold text-center">error</h1>;
   }
   return (
     <>
