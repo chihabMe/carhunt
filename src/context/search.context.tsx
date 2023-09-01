@@ -53,7 +53,6 @@ export const SearchContextProvider = ({
   const [cars, setCars] = useState(initialState.cars);
   const [isLoading, setIsLoading] = useState(false);
   const params = useSearchParams();
-  console.log(params.get("model"));
 
   const search = () => {
     if (query.trim() == "") setCars(initialState.cars);
@@ -64,10 +63,6 @@ export const SearchContextProvider = ({
   };
 
   useEffect(() => {
-    console.log("---------------");
-    console.log("---------------");
-    console.log(params);
-    console.log("---------------");
     const model = params.get("model");
     const year = params.get("year");
     const make = params.get("make");

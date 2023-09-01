@@ -3,10 +3,16 @@ import React from "react";
 import Button from "./Button";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import calculateDailyCarRentalCost from "@/utils/calculateCarCost";
 interface Props {
   car: ICar;
 }
 const CarCard = (props: Props) => {
+  const dailyCost = calculateDailyCarRentalCost(
+    50,
+    props.car.year,
+    (props.car.cityMpg + props.car.highwayMpg) / 2
+  ).toFixed(0);
   return (
     <div className="rounded-2xl cursor-pointer py-6 px-4 bg-gray-100 group hover:bg-light-bg  transition-all duration-300 hover:shadow-md  ">
       <div className="flex justify-between items-center">
@@ -19,7 +25,7 @@ const CarCard = (props: Props) => {
       </div>
       <div className="text-text text-sm flex items-center font-medium">
         <span>$</span>
-        <span className="text-title font-bold text-2xl">{props.car.cost}</span>
+        <span className="text-title font-bold text-2xl">{dailyCost}</span>
         <span>/day</span>
       </div>
       <div className="w-full flex justify-center py-2">
@@ -31,24 +37,24 @@ const CarCard = (props: Props) => {
           src={props.car.image ?? "/hero.png"}
         />
       </div>
-      <div className="min-h-[60px]">
+      <div className="min-h-[50px]">
         <div className="flex  justify-around gap-2 text-title text-xs font-medium py-4  capitalize group-hover:hidden transition-all duration-300">
           <div className="flex flex-col gap-2 items-center justify-center ">
             <span className="font-bold">built year</span>
             <span>{props.car.year}</span>
           </div>
           <div className="flex flex-col gap-2 items-center justify-center ">
-            <span className="font-bold" >transition</span>
+            <span className="font-bold">transition</span>
             <span>{props.car.transmission}</span>
           </div>
           <div className="flex flex-col gap-2 items-center justify-center ">
-            <span className="font-bold" >city/highway</span>
+            <span className="font-bold">city/highway</span>
             <span>
               {props.car.cityMpg}/{props.car.highwayMpg}
             </span>
           </div>
         </div>
-        <div className="w-full justify-center hidden group-hover:flex transition-all duration-300 py-2">
+        <div className="w-full justify-center hidden group-hover:flex transition-all duration-300 py-2.5">
           <Button className="!py-3">View More</Button>
         </div>
       </div>
