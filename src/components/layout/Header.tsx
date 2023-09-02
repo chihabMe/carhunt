@@ -4,8 +4,9 @@ import Button from "../ui/Button";
 import Container from "./Container";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, Transition } from "@headlessui/react";
+import { Menu, Transition,Disclosure } from "@headlessui/react";
 import { XMarkIcon, Bars3Icon as MenuIcon,HeartIcon,MagnifyingGlassIcon,BanknotesIcon } from "@heroicons/react/24/outline";
+import {useRouter} from "next/navigation"
 
 const navLinks =[
   { href: "/", text: "rentals cars",Icon:BanknotesIcon },
@@ -14,9 +15,10 @@ const navLinks =[
 ] 
 const mobileNavLinks = [
   ...navLinks,
-  { href: "/search", text: "search",Icon:MagnifyingGlassIcon },
+  { href: "/search?model="+encodeURIComponent(" "), text: "search",Icon:MagnifyingGlassIcon },
 ];
 const Header = () => {
+  const router = useRouter()
   return (
     <Container>
       <header className="flex items-center justify-between relative gap-2 px-4 py-4">
@@ -61,19 +63,20 @@ const Header = () => {
               <Menu.Items className=" bg-light-bg dark:bg-dark-bg px-4 z-10 fixed left-0 right-0 bottom-0 top-0 ">
                 <ul className="px-2 py-1 mt-12    flex flex-col     ">
                   <Menu.Item as="li">
-                    <Button className="w-full py-3 my-2">Sign in</Button>
+      <Button handleClick={()=>router.push("/accounts/signin")} className="w-full py-3 my-2">Sign in</Button>
                   </Menu.Item>
-                  {mobileNavLinks.map((item) => (
-                    <Menu.Item>
-                      <li className="hover:text-primary px-2   flex gap-4 items-center hover:bg-gray-50 py-4 capitalize  text-title  cursor-pointer text-lg  md:text-base">
-                      <div className="bg-gray-100 p-2 rounded-full">
-                      {<item.Icon className="w-6 h-6  "  /> }
-                      </div>
+                  {mobileNavLinks.map((item,idx) => (
+                    <Menu.Item key={idx+item.href}>
+                      <Link href={item.href}>
+                      <div className="hover:text-primary px-2   flex gap-4 items-center hover:bg-gray-50 py-4 capitalize  text-title  cursor-pointer text-lg  md:text-base">
+                      <div className="bg-gray-100 p-2 rounded-full">{<item.Icon className="w-6 h-6  "  /> }</div>
                       
                       <span>
                         {item.text}
                       </span>
-                      </li>
+
+                      </div>
+                      </Link>
                     </Menu.Item>
                   ))}
                 </ul>
@@ -82,7 +85,7 @@ const Header = () => {
           </Menu>
         </div>
         <div className="hidden md:block">
-          <Button className="!px-3 !font-bold !py-1 text-xs md:!px-6 md:!py-3">
+          <Button  className="!px-3 !font-bold !py-2.5 text-xs md:!px-6 md:!py-3">
             Sign in
           </Button>
         </div>
