@@ -10,7 +10,7 @@ import queryBuilder from "@/lib/searchQueryBuilder";
 
 const Filter = () => {
   return (
-    <div className="flex items-center w-full mx-auto max-w-screen-llg justify-between  gap-2 py-4 ">
+    <div className="flex items-center w-full mx-auto max-w-screen-llg justify-between  gap-2 py-4  flex-wrap px-4 ">
       <FilterSearch />
       <FilterFilters />
     </div>
@@ -52,9 +52,9 @@ const FilterSearch = () => {
   return (
     <form
       onSubmit={handleFormSubmit}
-      className="flex py-2  items-center gap-2 bg-gray-100 rounded-full px-8 max-w-[680px]"
+      className="flex flex-col sm:flex-row py-2  items-center gap-2 bg-gray-100 rounded-lg sm:rounded-full px-2  sm:px-8 w-full max-w-[580px]   "
     >
-      <div className="flex gap-4 items-center">
+      <div className="flex gap-4 items-center w-full">
         <WrenchIcon className="w-5 h-5 text-gray-500" />
         <input
           value={query}
@@ -62,10 +62,10 @@ const FilterSearch = () => {
           type="text"
           name="query"
           placeholder="Car Name.."
-          className="outline-none bg-transparent font-medium text-text"
+          className="outline-none w-full h-10 sm:h-auto bg-transparent font-medium text-text  sm:w-44 lg:w-64"
         />
       </div>
-      <div className="flex gap-4 items-center">
+      <div className="flex gap-4 items-center w-full">
         <Image
           src="/model-icon.png"
           width={25}
@@ -87,7 +87,7 @@ const FilterSearch = () => {
 };
 const SearchButton = () => {
   return (
-    <Button className="  !px-2.5 !py-2.5 !bg-light-bg  dark:!bg-dark-bg  !rounded-full group hover:!bg-primary transition-all duration-200">
+    <Button className="  !px-3 !py-3 !bg-light-bg  dark:!bg-dark-bg  !rounded-full group hover:!bg-primary transition-all duration-200">
       <MagnifyingGlassIcon className="w-5 h-5 text-primary font-bold group-hover:text-white transition-all duration-200 " />
     </Button>
   );

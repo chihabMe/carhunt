@@ -20,12 +20,12 @@ const Header = () => {
         </div>
         <nav className="">
           <ul className=" flex gap-8  font-semibold text-title  ">
-            <li className="hover:text-primary cursor-pointer">Rental deals</li>
-            <li className="hover:text-primary cursor-pointer">Favorite cars</li>
+            <li className="hover:text-primary cursor-pointer text-xs md:text-base ">Rental deals</li>
+            <li className="hover:text-primary cursor-pointer text-xs  md:text-base">Favorite cars</li>
           </ul>
         </nav>
         <div>
-          <Button className="!px-6 !py-3">sign in</Button>
+          <Button className="!px-3 !py-1 text-xs md:!px-6 md:!py-3">sign in</Button>
         </div>
       </header>
     </Container>
