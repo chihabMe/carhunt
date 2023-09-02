@@ -52,7 +52,7 @@ const FilterSearch = () => {
   return (
     <form
       onSubmit={handleFormSubmit}
-      className="flex flex-col sm:flex-row py-2  items-center gap-2 bg-gray-100 rounded-lg sm:rounded-full px-2  sm:px-8 w-full max-w-[580px]   "
+      className="flex flex-col sm:flex-row py-2  items-center gap-2 bg-gray-100 rounded-lg sm:rounded-full px-2.5  sm:px-8 w-full max-w-[580px]   "
     >
       <div className="flex gap-4 items-center w-full">
         <WrenchIcon className="w-5 h-5 text-gray-500" />
@@ -64,6 +64,7 @@ const FilterSearch = () => {
           placeholder="Car Name.."
           className="outline-none w-full h-10 sm:h-auto bg-transparent font-medium text-text  sm:w-44 lg:w-64"
         />
+        <SearchButton />
       </div>
       <div className="flex gap-4 items-center w-full">
         <Image
@@ -80,7 +81,6 @@ const FilterSearch = () => {
           setSelected={setMake}
         />
 
-        <SearchButton />
       </div>
     </form>
   );
