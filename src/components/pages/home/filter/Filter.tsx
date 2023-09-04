@@ -5,7 +5,7 @@ import Image from "next/image";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import FilterList from "./FilterList";
 import { useSearchContext } from "@/context/search.context";
-import { usePathname, useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 import queryBuilder from "@/lib/searchQueryBuilder";
 
 const Filter = () => {
@@ -38,6 +38,7 @@ const FilterSearch = () => {
     setQuery(e.currentTarget.value);
   };
   const handleFormSubmit = (e: FormEvent) => {
+    console.log("run handleFormSubmit")
     e.preventDefault();
 
     const newQuery = queryBuilder({

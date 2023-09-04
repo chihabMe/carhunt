@@ -3,7 +3,7 @@ const queryBuilder = (params: Record<string, any>): string => {
     .filter(([key, value]) => value != null)
     .map(
       ([key, value]) =>
-        `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+        `${encodeURIComponent(key)}=${encodeURIComponent(value.toString().trim())}`
     )
     .join("&");
   return `?${queryString}`;
