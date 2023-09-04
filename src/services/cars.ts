@@ -22,7 +22,9 @@ config?:Record<string,any>,queries?:Record<string,string>
       "https://api.api-ninjas.com/v1/cars?model=+&?limit=5",
       options
     );
+
     if(!response.ok){
+
       const data = await response.json()
       console.error(data)
       throw new Error("unable to fetch data")

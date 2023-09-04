@@ -5,7 +5,8 @@ import React, { ReactNode } from "react";
 const ProgressBarProvider = ({ children }: { children: ReactNode }) => {
   return (
     <>
-      <Next13ProgressBar  color="#2c5aff" showOnShallow />
+      <Next13ProgressBar color="#2c5aff" showOnShallow />
+
       {children}
     </>
   );

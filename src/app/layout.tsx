@@ -1,4 +1,5 @@
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -24,6 +25,7 @@ export default function RootLayout({
           <ProgressBarProvider>
             <Header />
             {children}
+            <Footer />
           </ProgressBarProvider>
         </SearchContextProvider>
       </body>

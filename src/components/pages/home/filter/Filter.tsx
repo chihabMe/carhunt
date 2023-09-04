@@ -5,8 +5,9 @@ import Image from "next/image";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import FilterList from "./FilterList";
 import { useSearchContext } from "@/context/search.context";
-import {  useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import queryBuilder from "@/lib/searchQueryBuilder";
+import MakeList from "@/components/pages/home/filter/MakeList";
 
 const Filter = () => {
   return (
@@ -36,9 +37,10 @@ const FilterSearch = () => {
     useSearchContext();
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.currentTarget.value);
+    const a = 3;
   };
   const handleFormSubmit = (e: FormEvent) => {
-    console.log("run handleFormSubmit")
+    console.log("run handleFormSubmit");
     e.preventDefault();
 
     const newQuery = queryBuilder({
@@ -75,13 +77,7 @@ const FilterSearch = () => {
           alt="car image"
           className=""
         />
-        <FilterList
-          className="bg-transparent outline-none  shadow-none"
-          choices={makes}
-          selected={make}
-          setSelected={setMake}
-        />
-
+        <MakeList />
       </div>
     </form>
   );
