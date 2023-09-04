@@ -7,8 +7,9 @@ import FilterList from "./FilterList";
 import { useSearchContext } from "@/context/search.context";
 import { useRouter } from "next/navigation";
 import queryBuilder from "@/lib/searchQueryBuilder";
-import MakeList from "@/components/pages/home/filter/MakeList";
+import InputList from "@/components/ui/InputList";
 
+const makes = ["tesla", "mazzda", "toyota"];
 const Filter = () => {
   return (
     <div className="flex items-center w-full mx-auto max-w-screen-llg justify-between  gap-2 py-4  flex-wrap px-4 ">
@@ -30,7 +31,6 @@ const FilterFilters = () => {
     </div>
   );
 };
-const makes = ["mazda", "toyota", "ferrari"];
 const FilterSearch = () => {
   const router = useRouter();
   const { query, year, fuel, search, make, setQuery, setMake } =
@@ -77,7 +77,7 @@ const FilterSearch = () => {
           alt="car image"
           className=""
         />
-        <MakeList />
+        <InputList selected={make} setItem={setMake} items={makes} />
       </div>
     </form>
   );

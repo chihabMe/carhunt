@@ -58,7 +58,7 @@ export const SearchContextProvider = ({
     if (query.trim() == "") setCars(initialState.cars);
     else
       setCars((prev) =>
-        initialCars.filter((item) => item.model.includes(query))
+        initialCars.filter((item) => item.model.includes(query)),
       );
   };
 

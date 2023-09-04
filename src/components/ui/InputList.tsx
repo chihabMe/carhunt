@@ -2,39 +2,33 @@
 import { useState, Fragment } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import { ChevronUpDownIcon, CheckIcon } from "@heroicons/react/24/solid";
-const makes = [
-  { name: "tesla", id: "1" },
-  { name: "toyota", id: "2" },
-  { name: "mazzda", id: "3" },
-];
-interface ICar {
-  name: string;
+import type IMake from "@/interfaces/IMake";
+interface Props {
+  items: string[];
+  selected: string;
+  setItem: (item: string) => void;
 }
-const MakeList = () => {
-  const [selected, setSelected] = useState(makes[0]);
-
-  const [make, setMake] = useState("");
-
-  () => {};
-
+const MakeList = (props: Props) => {
+  const [query, setQuery] = useState("");
   const filterMakes =
-    make === ""
-      ? makes
-      : makes.filter((item) =>
-          item.name
-            .toLowerCase()
-            .replace(/\s+/g, "")
-            .includes(make.toLowerCase().replace(/\s+/g, "")),
+    query === ""
+      ? props.items
+      : props.items.filter(
+          (item) =>
+            item
+              ?.toLowerCase()
+              .replace(/\s+/g, "")
+              .includes(query.toLowerCase().replace(/\s+/g, "")),
         );
 
   return (
     <div className=" relative w-40">
-      <Combobox value={selected} onChange={setSelected}>
+      <Combobox value={props.selected} onChange={props.setItem}>
         <div className="relative mt-1 ">
           <Combobox.Input
-            className="w-full   outline-none   bg-transparent border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
-            onChange={(event) => setMake(event.target.value)}
-            displayValue={({ name }: { name: string }) => name}
+            className="w-full    outline-none   bg-transparent border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
+            onChange={(event) => setQuery(event.target.value)}
+            displayValue={(item: string) => item}
           />
           <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
             <ChevronUpDownIcon
@@ -48,19 +42,19 @@ const MakeList = () => {
           leave="transition ease-in duration-100"
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
-          afterLeave={() => setMake("")}
+          afterLeave={() => setQuery("")}
         >
           <Combobox.Options className="absolute mt-1 py-2 px-2 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-            {makes.length === 0 && make !== "" ? (
+            {props.items.length === 0 && query !== "" ? (
               <div className="relative cursor-default select-none py-2 px-4 text-title">
                 Nothing found.
               </div>
             ) : (
-              filterMakes.map((item) => (
+              filterMakes.map((item, idx) => (
                 <Combobox.Option
-                  key={item.id}
+                  key={idx}
                   className={({ active }) =>
-                    `relative cursor-default rounded-md  select-none py-2 pl-10 pr-4 ${
+                    `relative capitalize cursor-default rounded-md  select-none py-2 pl-10 pr-4 ${
                       active ? " bg-primary text-white" : "text-title"
                     }`
                   }
@@ -73,7 +67,7 @@ const MakeList = () => {
                           selected ? "font-medium" : "font-normal"
                         }`}
                       >
-                        {item.name}
+                        {item}
                       </span>
                       {selected ? (
                         <span
