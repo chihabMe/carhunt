@@ -4,6 +4,7 @@ import Button from "./Button";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import calculateDailyCarRentalCost from "@/utils/calculateCarCost";
+import CarDetailsModal from "@/components/modals/CarDetailsModal"
 interface Props {
   car: ICar;
 }
@@ -56,6 +57,7 @@ const CarCard = (props: Props) => {
         </div>
         <div className="w-full justify-center hidden group-hover:flex transition-all duration-300 py-2.5">
           <Button className="!py-3">View More</Button>
+          <CarDetailsModal/>
         </div>
       </div>
     </div>

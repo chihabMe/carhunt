@@ -9,8 +9,15 @@ const getCars = async (params: Record<string, string>): Promise<ICar[]> => {
       "X-Api-Key": process.env.NINJASCARKEY ?? "",
     },
   };
-  const query = queryBuilder({ model: " ", ...params,limit: 10  });
+  if (params.model.trim().length == 0) params.model = encodeURIComponent(" ");
+  const query = queryBuilder({
+    ...params,
+    limit: 10,
+  });
+  console.log("query", query);
+
   const url = `https://api.api-ninjas.com/v1/cars${query}`;
+  console.log("url", url);
   try {
     const response = await fetch(url, { ...options, cache: "no-cache" });
     if (!response.ok) throw new Error("unable to fetch data");

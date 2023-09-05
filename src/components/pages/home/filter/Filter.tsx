@@ -8,8 +8,8 @@ import { useSearchContext } from "@/context/search.context";
 import { useRouter } from "next/navigation";
 import queryBuilder from "@/lib/searchQueryBuilder";
 import InputList from "@/components/ui/InputList";
+import carsMakes from "@/data/makes.json";
 
-const makes = ["tesla", "mazzda", "toyota"];
 const Filter = () => {
   return (
     <div className="flex items-center w-full mx-auto max-w-screen-llg justify-between  gap-2 py-4  flex-wrap px-4 ">
@@ -77,7 +77,11 @@ const FilterSearch = () => {
           alt="car image"
           className=""
         />
-        <InputList selected={make} setItem={setMake} items={makes} />
+        <InputList
+          selected={make}
+          setItem={setMake}
+          items={["make", ...carsMakes.makes]}
+        />
       </div>
     </form>
   );
