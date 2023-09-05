@@ -38,8 +38,8 @@ const CarCard = (props: Props) => {
           src={props.car.image ?? "/hero.png"}
         />
       </div>
-      <div className="min-h-[50px]">
-        <div className="flex  justify-around gap-2 text-title text-xs font-medium py-4  capitalize group-hover:hidden transition-all duration-300">
+      <div className="min-h-[40px]">
+        <div className="flex  justify-around gap-2 text-title text-xs font-medium py-4  capitalize md:group-hover:hidden transition-all duration-300">
           <div className="flex flex-col gap-2 items-center justify-center ">
             <span className="font-bold">built year</span>
             <span>{props.car.year}</span>
@@ -55,7 +55,7 @@ const CarCard = (props: Props) => {
             </span>
           </div>
         </div>
-        <div className="w-full justify-center hidden group-hover:flex transition-all duration-300 py-2.5">
+        <div className="w-full justify-center md:hidden group-hover:flex transition-all duration-300 py-2.5">
           <CarDetailsModal car={props.car} />
         </div>
       </div>
