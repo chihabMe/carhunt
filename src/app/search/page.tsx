@@ -39,8 +39,8 @@ const SearchPage = async ({ searchParams }: SearchProps) => {
   }
   return (
     <>
-      <section className="w-full max-w-screen-llg mx-auto ">
-        <ul className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <section className="w-full max-w-screen-llg mx-auto px-2 ">
+        <ul className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {cars?.map((item) => (
             <li key={item.id}>
               <CarCard car={item} />

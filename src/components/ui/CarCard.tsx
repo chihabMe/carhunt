@@ -4,7 +4,7 @@ import Button from "./Button";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import calculateDailyCarRentalCost from "@/utils/calculateCarCost";
-import CarDetailsModal from "@/components/modals/CarDetailsModal"
+import CarDetailsModal from "@/components/modals/CarDetailsModal";
 interface Props {
   car: ICar;
 }
@@ -12,7 +12,7 @@ const CarCard = (props: Props) => {
   const dailyCost = calculateDailyCarRentalCost(
     50,
     props.car.year,
-    (props.car.cityMpg + props.car.highwayMpg) / 2
+    (props.car.cityMpg + props.car.highwayMpg) / 2,
   ).toFixed(0);
   return (
     <div className="rounded-2xl cursor-pointer py-6 px-4 bg-gray-100 group hover:bg-light-bg  transition-all duration-300 hover:shadow-md  ">
@@ -56,8 +56,7 @@ const CarCard = (props: Props) => {
           </div>
         </div>
         <div className="w-full justify-center hidden group-hover:flex transition-all duration-300 py-2.5">
-          <Button className="!py-3">View More</Button>
-          <CarDetailsModal/>
+          <CarDetailsModal car={props.car} />
         </div>
       </div>
     </div>
