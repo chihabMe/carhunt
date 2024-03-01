@@ -8,25 +8,25 @@ const infos = [
     title: "We Check Car History",
     description:
       "Ensuring transparency by examining past accidents, repairs, and more.",
-    image: "/home/info1.png",
+    image: "/home/info1.webp",
   },
   {
     title: "We Verify Previous Owners",
     description:
       "Providing insights into ownership history for informed decisions.",
-    image: "/home/info2.png",
+    image: "/home/info2.webp",
   },
   {
     title: "We Assess Oil Quality",
     description:
       "Evaluating types and conditions of oils used for optimal performance.",
-    image: "/home/info3.png",
+    image: "/home/info3.webp",
   },
   {
     title: "We Inspect Car Components",
     description:
       "Thorough examination of mechanical, electrical, and structural parts.",
-    image: "/home/info4.png",
+    image: "/home/info4.webp",
   },
 ];
 const Introduction = () => {

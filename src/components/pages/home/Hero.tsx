@@ -48,13 +48,14 @@ const Hero = () => {
         <motion.div
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.1 }}
         >
           <Image
-            src={"/hero.png"}
+            src={"/hero.webp"}
             alt="car image "
-            className=""
-            width={600}
-            height={600}
+            className="h-[!500px] w-[!500px]"
+            width={500}
+            height={500}
           />
         </motion.div>
       </div>
