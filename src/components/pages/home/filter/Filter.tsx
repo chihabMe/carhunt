@@ -9,13 +9,23 @@ import queryBuilder from "@/lib/searchQueryBuilder";
 import InputList from "@/components/ui/InputList";
 import carsMakes from "@/data/makes.json";
 import { Button } from "@/components/ui/button";
+import Container from "@/components/layout/Container";
+import { motion } from "framer-motion";
 
 const Filter = () => {
   return (
-    <div className="flex items-center w-full mx-auto max-w-screen-llg justify-between  gap-2 py-4  flex-wrap px-4 ">
-      <FilterSearch />
-      <FilterFilters />
-    </div>
+    <Container>
+      <motion.div
+        initial={{ y: 10, scale: 0.95, opacity: 0 }}
+        animate={{ y: 0, scale: 1, opacity: 1 }}
+        transition={{ delay: 0.35 }}
+      >
+        <div className="flex  items-center w-full mx-auto max-w-screen-llg justify-between  gap-2 py-14   flex-wrap px-4 ">
+          <FilterSearch />
+          <FilterFilters />
+        </div>
+      </motion.div>
+    </Container>
   );
 };
 const builtYears: any[] = ["year"];
@@ -23,10 +33,13 @@ for (let i = 0; i <= 23; i++) builtYears.push(2000 + i);
 const fuelTypes = ["fuel", "gas", "fuel", "electric"];
 const FilterFilters = () => {
   const { year, fuel, setFuel, setYear } = useSearchContext();
-
   return (
     <div className="flex relative gap-2">
-      <FilterList selected={year} setSelected={setYear} choices={builtYears} />
+      <FilterList
+        selected={year}
+        setSelected={setYear}
+        choices={builtYears}
+      />
       <FilterList selected={fuel} setSelected={setFuel} choices={fuelTypes} />
     </div>
   );
@@ -88,7 +101,7 @@ const FilterSearch = () => {
 const SearchButton = () => {
   return (
     <Button className="  !px-3 !py-3 !bg-light-bg  dark:!bg-dark-bg  !rounded-full group hover:!bg-primary transition-all duration-200">
-      <MagnifyingGlassIcon className="w-5 h-5 text-primary font-bold group-hover:text-white transition-all duration-200 " />
+      <MagnifyingGlassIcon className="w-5 h-5 text-white font-bold group-hover:text-white transition-all duration-200 " />
     </Button>
   );
 };
