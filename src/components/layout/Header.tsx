@@ -4,23 +4,48 @@ import Button from "../ui/Button";
 import Container from "./Container";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, Transition,Disclosure } from "@headlessui/react";
-import { XMarkIcon, Bars3Icon as MenuIcon,HeartIcon,MagnifyingGlassIcon,BanknotesIcon } from "@heroicons/react/24/outline";
-import {useRouter} from "next/navigation"
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import {
+  BanknotesIcon,
+  Bars3Icon as MenuIcon,
+  HeartIcon,
+  MagnifyingGlassIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 
-const navLinks =[
-  { href: "/", text: "rentals cars",Icon:BanknotesIcon },
-  { href: "/", text: "favorite cars",Icon:HeartIcon },
-  
-] 
+import { MapPinIcon, PhoneIcon } from "@heroicons/react/24/solid";
+import { useRouter } from "next/navigation";
+
+const navLinks = [
+  { href: "/", text: "rentals cars", Icon: BanknotesIcon },
+  { href: "/", text: "favorite cars", Icon: HeartIcon },
+];
 const mobileNavLinks = [
   ...navLinks,
-  { href: "/search?model="+encodeURIComponent(" "), text: "search",Icon:MagnifyingGlassIcon },
+  {
+    href: "/search?model=" + encodeURIComponent(" "),
+    text: "search",
+    Icon: MagnifyingGlassIcon,
+  },
 ];
 const Header = () => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <Container>
+      <div className="w-full  flex items-center py-4 border-b-2 border-gray-100 justify-between px-4">
+        <div className="flex items-center gap-2 text-gray-600">
+          <MapPinIcon className="w-5 h-5" />
+          <h1 className="font-semibold text-xs">
+            USA,IL Chicago
+          </h1>
+        </div>
+        <div className="flex items-center gap-2 text-gray-600  ">
+          <PhoneIcon className="w-5 h-5" />
+          <h1 className="font-semibold text-xs">
+            (+1) 40 89 09 68 48
+          </h1>
+        </div>
+      </div>
       <header className="flex items-center justify-between relative gap-2 px-4 py-4">
         <div>
           <Link href="/">
@@ -29,8 +54,11 @@ const Header = () => {
         </div>
         <nav className="hidden md:flex gap-8 font-semibold text-title">
           <ul className="flex gap-8 font-semibold text-title">
-            {navLinks.map((item,idx) => (
-              <li key={idx} className="hover:text-primary cursor-pointer text-xs md:text-base">
+            {navLinks.map((item, idx) => (
+              <li
+                key={idx}
+                className="hover:text-primary cursor-pointer text-xs md:text-base"
+              >
                 {item.text}
               </li>
             ))}
@@ -42,11 +70,9 @@ const Header = () => {
               <Menu.Button className="text-white focus:outline-none fixed top-1 right-3  z-30">
                 {({ open }) => (
                   <>
-                    {open ? (
-                      <XMarkIcon className="w-8 h-8 text-title" />
-                    ) : (
-                      <MenuIcon className="w-8 h-8 text-title" />
-                    )}
+                    {open
+                      ? <XMarkIcon className="w-8 h-8 text-title" />
+                      : <MenuIcon className="w-8 h-8 text-title" />}
                   </>
                 )}
               </Menu.Button>
@@ -63,19 +89,25 @@ const Header = () => {
               <Menu.Items className=" bg-light-bg dark:bg-dark-bg px-4 z-10 fixed left-0 right-0 bottom-0 top-0 ">
                 <ul className="px-2 py-1 mt-12    flex flex-col     ">
                   <Menu.Item as="li">
-      <Button handleClick={()=>router.push("/accounts/signin")} className="w-full py-3 my-2">Sign in</Button>
+                    <Button
+                      handleClick={() => router.push("/accounts/signin")}
+                      className="w-full py-3 my-2"
+                    >
+                      Sign in
+                    </Button>
                   </Menu.Item>
-                  {mobileNavLinks.map((item,idx) => (
-                    <Menu.Item key={idx+item.href}>
+                  {mobileNavLinks.map((item, idx) => (
+                    <Menu.Item key={idx + item.href}>
                       <Link href={item.href}>
-                      <div className="hover:text-primary px-2   flex gap-4 items-center hover:bg-gray-50 py-4 capitalize  text-title  cursor-pointer text-lg  md:text-base">
-                      <div className="bg-gray-100 p-2 rounded-full">{<item.Icon className="w-6 h-6  "  /> }</div>
-                      
-                      <span>
-                        {item.text}
-                      </span>
+                        <div className="hover:text-primary px-2   flex gap-4 items-center hover:bg-gray-50 py-4 capitalize  text-title  cursor-pointer text-lg  md:text-base">
+                          <div className="bg-gray-100 p-2 rounded-full">
+                            {<item.Icon className="w-6 h-6  " />}
+                          </div>
 
-                      </div>
+                          <span>
+                            {item.text}
+                          </span>
+                        </div>
                       </Link>
                     </Menu.Item>
                   ))}
@@ -85,7 +117,7 @@ const Header = () => {
           </Menu>
         </div>
         <div className="hidden md:block">
-          <Button  className="!px-3 !font-bold !py-2.5 text-xs md:!px-6 md:!py-3">
+          <Button className="!px-3 !font-bold !py-2.5 text-xs md:!px-6 md:!py-3">
             Sign in
           </Button>
         </div>
