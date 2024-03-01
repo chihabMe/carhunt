@@ -1,12 +1,18 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
     <section className="flex flex-col-reverse gap-4 md:flex-row items-center  relative justify-between w-full pt-20 mx-auto max-w-[1200px]   min-h-[300px]  px-4 ">
       <div className="w-full md:w-1/2 flex flex-col gap-8 ">
-        <div className="flex flex-col gap-2">
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          className="flex flex-col gap-2"
+        >
           <h2 className="text-title text-5xl font-bold capitalize">
             find,book,rent
           </h2>
@@ -16,26 +22,43 @@ const Hero = () => {
           <h2 className="text-title text-5xl font-bold capitalize">
             super easy!
           </h2>
-        </div>
-        <p className="text-title font-medium  max-w-[400px]">
+        </motion.div>
+        <motion.p
+          initial={{ x: -100, opacity: 0 }}
+          transition={{ delay: 0.1 }}
+          animate={{ x: 0, opacity: 1 }}
+          className="text-title font-medium  max-w-[400px]"
+        >
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint, odit
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint, odit
           Nulla, eum.
-        </p>
-        <Button className="max-w-[135px] py-3 !px-2">Explore cars</Button>
+        </motion.p>
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          transition={{ delay: 0.2 }}
+          animate={{ x: 0, opacity: 1 }}
+          className="text-title font-medium  max-w-[400px]"
+        >
+          <Button className="px-8 w-full max-w-[135px] py-3 !px-2">
+            Explore cars
+          </Button>
+        </motion.div>
       </div>
       <div>
-        <div className="">
+        <motion.div
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+        >
           <Image
             src={"/hero.png"}
             alt="car image "
             className=""
-            width={700}
-            height={700}
+            width={600}
+            height={600}
           />
-        </div>
-        <div className="bg-primary absolute top-0 bottom-0  "></div>
+        </motion.div>
       </div>
+      <div className="bg-primary absolute top-0 bottom-0  "></div>
     </section>
   );
 };

@@ -19,6 +19,8 @@ import { Button } from "../ui/button";
 const navLinks = [
   { href: "/", text: "rentals cars", Icon: BanknotesIcon },
   { href: "/", text: "favorite cars", Icon: HeartIcon },
+  { href: "/about", text: "about", Icon: BanknotesIcon },
+  { href: "/contact", text: "contact us", Icon: BanknotesIcon },
 ];
 const mobileNavLinks = [
   ...navLinks,
@@ -57,7 +59,7 @@ const Header = () => {
             {navLinks.map((item, idx) => (
               <li
                 key={idx}
-                className="hover:text-primary cursor-pointer text-xs md:text-base"
+                className="hover:text-primary capitalize text-gray-800 cursor-pointer text-xs md:text-base"
               >
                 {item.text}
               </li>
@@ -91,7 +93,8 @@ const Header = () => {
                   <Menu.Item as="li">
                     <Button
                       onClick={() => router.push("/accounts/signin")}
-                      className="w-full py-3 my-2"
+                      size="lg"
+                      className="!bg-green-200"
                     >
                       Sign in
                     </Button>
