@@ -44,21 +44,19 @@ const Hero = () => {
           </Button>
         </motion.div>
       </div>
-      <div>
-        <motion.div
-          className="h-[!500px] w-[!500px]"
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.1 }}
-        >
-          <Image
-            src={"/hero.webp"}
-            alt="car image "
-            width={500}
-            height={500}
-          />
-        </motion.div>
-      </div>
+      <motion.div
+        className="h-[!500px] w-[!500px]"
+        initial={{ x: 100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.1 }}
+      >
+        <Image
+          src={"/hero.webp"}
+          alt="car image "
+          width={500}
+          height={500}
+        />
+      </motion.div>
       <div className="bg-primary absolute top-0 bottom-0  "></div>
     </section>
   );
