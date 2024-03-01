@@ -20,7 +20,12 @@ const CarDetailsModal = ({ car }: Props) => {
   const onOpen = () => setIsOpen(true);
   return (
     <>
-      <Button handleClick={onOpen} className="!py-3 w-full">
+      <Button
+        onClick={() => {
+          onOpen();
+        }}
+        className="!py-3 w-full"
+      >
         View More
       </Button>
       <Transition appear as={Fragment} show={isOpen}>
@@ -53,7 +58,7 @@ const CarDetailsModal = ({ car }: Props) => {
                     className="w-full flex justify-end w-full   "
                   >
                     <Button
-                      handleClick={onClose}
+                      onClick={onClose}
                       className="!px-1 absolute top-1 right-1 !py-1 rounded-full hover:!bg-red-400 group  !bg-light-bg outline-none dark:!bg-dark-bg"
                     >
                       <XMarkIcon className="w-6 h-6 text-title group-hover:text-white  " />
@@ -138,13 +143,13 @@ const CarImags = ({ images }: { images: string[] }) => {
         </ul>
 
         <Button
-          handleClick={scrollForward}
+          onClick={scrollForward}
           className="!p-1 !bg-primary absolute top-1/2 -translate-y-1/2 right-1"
         >
           <ArrowRightIcon className="text-white w-5 h-5 " />
         </Button>
         <Button
-          handleClick={scrollBackward}
+          onClick={scrollBackward}
           className="!p-1 !bg-primary absolute top-1/2 z-10 -translate-y-1/2 left-1"
         >
           <ArrowLeftIcon className="text-white w-5 h-5 " />

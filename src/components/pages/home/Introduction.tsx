@@ -46,6 +46,7 @@ const Introduction = () => {
         <div className="grid grid-cols-2 pt-8 w-full max-w-screen-lg mx-auto gap-2 ">
           {infos.map((item, idx) => (
             <motion.div
+              key={"info_" + idx}
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 * idx }}
@@ -78,7 +79,7 @@ const InfoItem = (
         {description}
       </p>
       <div className=" absolute bottom-0 right-0">
-        <Image width={240} height={240} src={image} />
+        <Image alt={`${title} image`} width={240} height={240} src={image} />
       </div>
     </li>
   );
