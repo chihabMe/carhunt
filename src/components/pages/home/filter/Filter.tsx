@@ -1,5 +1,4 @@
 "use client";
-import Button from "@/components/ui/Button";
 import { MagnifyingGlassIcon, WrenchIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import React, { ChangeEvent, FormEvent, useState } from "react";
@@ -9,6 +8,7 @@ import { useRouter } from "next/navigation";
 import queryBuilder from "@/lib/searchQueryBuilder";
 import InputList from "@/components/ui/InputList";
 import carsMakes from "@/data/makes.json";
+import { Button } from "@/components/ui/button";
 
 const Filter = () => {
   return (

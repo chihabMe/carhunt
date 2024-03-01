@@ -1,6 +1,5 @@
 "use client";
 import React, { Fragment, useState } from "react";
-import Button from "../ui/Button";
 import Container from "./Container";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,6 +14,7 @@ import {
 
 import { MapPinIcon, PhoneIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
+import { Button } from "../ui/button";
 
 const navLinks = [
   { href: "/", text: "rentals cars", Icon: BanknotesIcon },
@@ -67,7 +67,7 @@ const Header = () => {
         <div className="md:hidden     bg-blue w-56 text-right">
           <Menu as="div" className=" inline-block text-left">
             <div>
-              <Menu.Button className="text-white focus:outline-none fixed top-1 right-3  z-30">
+              <Menu.Button className="text-white focus:outline-none fixed top-14 right-4  z-30">
                 {({ open }) => (
                   <>
                     {open
@@ -90,7 +90,7 @@ const Header = () => {
                 <ul className="px-2 py-1 mt-12    flex flex-col     ">
                   <Menu.Item as="li">
                     <Button
-                      handleClick={() => router.push("/accounts/signin")}
+                      onClick={() => router.push("/accounts/signin")}
                       className="w-full py-3 my-2"
                     >
                       Sign in
@@ -117,7 +117,7 @@ const Header = () => {
           </Menu>
         </div>
         <div className="hidden md:block">
-          <Button className="!px-3 !font-bold !py-2.5 text-xs md:!px-6 md:!py-3">
+          <Button className=" !px-10  !font-bold !py-2.5 text-xs md:!px-6 md:!py-3">
             Sign in
           </Button>
         </div>

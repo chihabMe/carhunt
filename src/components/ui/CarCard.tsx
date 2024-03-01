@@ -1,10 +1,10 @@
 import ICar from "@/interfaces/ICar";
 import React from "react";
-import Button from "./Button";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import calculateDailyCarRentalCost from "@/utils/calculateCarCost";
 import CarDetailsModal from "@/components/modals/CarDetailsModal";
+import { Button } from "./button";
 interface Props {
   car: ICar;
 }

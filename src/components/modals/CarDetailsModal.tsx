@@ -2,14 +2,14 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import {
-  XMarkIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
+  XMarkIcon,
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import ICar from "@/interfaces/ICar";
-import Button from "@/components/ui/Button";
 import { useRef } from "react";
+import { Button } from "../ui/button";
 
 interface Props {
   car: ICar;
@@ -84,10 +84,11 @@ const CarImags = ({ images }: { images: string[] }) => {
   const scrollBar = useRef<HTMLUListElement>(null);
   const [currentImage, setCurrentImage] = useState(images[0]);
   const canScroll = scrollBar.current;
-  if (scrollBar.current)
+  if (scrollBar.current) {
     scrollBar.current.scroll({
       left: 1000,
     });
+  }
   const scrollForward = () => {
     scrollBar.current?.scroll({
       left: scrollBar.current?.scrollLeft + 90,
