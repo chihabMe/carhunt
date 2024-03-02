@@ -1,8 +1,14 @@
 "use client";
 import Container from "@/components/layout/Container";
 import Image from "next/image";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import {
+  animate,
+  motion,
+  useAnimate,
+  useAnimation,
+  useInView,
+} from "framer-motion";
 const infos = [
   {
     title: "We Check Car History",
@@ -45,18 +51,13 @@ const Introduction = () => {
         </div>
         <div className="grid grid-cols-2 pt-8 w-full max-w-screen-lg mx-auto gap-2 ">
           {infos.map((item, idx) => (
-            <motion.div
+            <InfoItem
               key={"info_" + idx}
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 * idx }}
-            >
-              <InfoItem
-                image={item.image}
-                title={item.title}
-                description={item.description}
-              />
-            </motion.div>
+              idx={idx}
+              image={item.image}
+              title={item.title}
+              description={item.description}
+            />
           ))}
         </div>
       </section>
@@ -64,14 +65,37 @@ const Introduction = () => {
   );
 };
 const InfoItem = (
-  { title, description, image }: {
+  { idx, title, description, image }: {
     title: string;
+    idx: number;
     description: string;
     image: string;
   },
 ) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: "all" });
+  const animate = useAnimation();
+  useEffect(() => {
+    if (isInView) {
+      animate.start({
+        opacity: 1,
+        x: 0,
+      });
+    } else {
+      animate.start({
+        opacity: 0,
+        x: 10,
+      });
+    }
+  }, [isInView]);
   return (
-    <li className="h-60 relative shadow shadow-sm  rounded-md list-none p-4  flex flex-col gap-2">
+    <motion.li
+      ref={ref}
+      initial={{ opacity: 0, x: 10 }}
+      animate={animate}
+      transition={{ delay: 0.2 * idx }}
+      className="h-60 relative shadow shadow-sm  rounded-md list-none p-4  flex flex-col gap-2"
+    >
       <h1 className="text-gray-900 font-bold text-lg">
         {title}
       </h1>
@@ -81,7 +105,7 @@ const InfoItem = (
       <div className=" absolute bottom-0 right-0">
         <Image alt={`${title} image`} width={240} height={240} src={image} />
       </div>
-    </li>
+    </motion.li>
   );
 };
 
