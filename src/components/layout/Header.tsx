@@ -74,7 +74,10 @@ const Header = () => {
         <div className="md:hidden     bg-blue w-56 text-right">
           <Menu as="div" className=" inline-block text-left">
             <div>
-              <Menu.Button className="text-white focus:outline-none fixed top-14 right-4  z-30">
+              <Menu.Button
+                aria-label="toggle menu bar"
+                className="text-white focus:outline-none fixed top-14 right-4  z-30"
+              >
                 {({ open }) => (
                   <>
                     {open
