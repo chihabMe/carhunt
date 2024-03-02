@@ -55,6 +55,7 @@ const Hero = () => {
           alt="car image "
           width={500}
           height={295}
+          priority
         />
       </motion.div>
       <div className="bg-primary absolute top-0 bottom-0  "></div>
