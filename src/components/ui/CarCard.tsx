@@ -20,7 +20,10 @@ const CarCard = (props: Props) => {
         <h3 className="font-bold  capitalize text-title">
           {props.car.make} {props.car.model}
         </h3>
-        <Button className="bg-transparent transition-all duration-300 active:!ring-red-400 group !p-1 rounded-full">
+        <Button
+          name="like"
+          className="bg-transparent transition-all duration-300 active:!ring-red-400 group !p-1 rounded-full"
+        >
           <HeartIcon className="w-6 h-6  transition-all duration-300  group-active:text-red-400 text-gray-400" />
         </Button>
       </div>

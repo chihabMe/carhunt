@@ -100,7 +100,10 @@ const FilterSearch = () => {
 };
 const SearchButton = () => {
   return (
-    <Button className="  !px-3 !py-3 !bg-light-bg  dark:!bg-dark-bg  !rounded-full group hover:!bg-primary transition-all duration-200">
+    <Button
+      name="search button"
+      className="  !px-3 !py-3 !bg-light-bg  dark:!bg-dark-bg  !rounded-full group hover:!bg-primary transition-all duration-200"
+    >
       <MagnifyingGlassIcon className="w-5 h-5 text-white font-bold group-hover:text-white transition-all duration-200 " />
     </Button>
   );

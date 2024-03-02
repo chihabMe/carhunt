@@ -39,7 +39,10 @@ const Hero = () => {
           animate={{ x: 0, opacity: 1 }}
           className="text-title font-medium  max-w-[400px]"
         >
-          <Button className="px-8 w-full max-w-[135px] py-3 !px-2">
+          <Button
+            name="explore more button"
+            className="px-8 w-full max-w-[135px] py-3 !px-2"
+          >
             Explore cars
           </Button>
         </motion.div>

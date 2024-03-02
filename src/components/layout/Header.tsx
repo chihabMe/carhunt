@@ -97,6 +97,7 @@ const Header = () => {
                 <ul className="px-2 py-1 mt-12    flex flex-col     ">
                   <Menu.Item as="li">
                     <Button
+                      name="to to signin"
                       onClick={() => router.push("/accounts/signin")}
                       size="lg"
                       className="!bg-green-200"
@@ -125,7 +126,10 @@ const Header = () => {
           </Menu>
         </div>
         <div className="hidden md:block">
-          <Button className=" !px-10  !font-bold !py-2.5 text-xs md:!px-6 md:!py-3">
+          <Button
+            name="go to sign in "
+            className=" !px-10  !font-bold !py-2.5 text-xs md:!px-6 md:!py-3"
+          >
             Sign in
           </Button>
         </div>
