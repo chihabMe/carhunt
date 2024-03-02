@@ -42,7 +42,7 @@ const CarDetailsModal = ({ car }: Props) => {
           >
             <div className="fixed inset-0 bg-black bg-opacity-25" />
           </Transition.Child>
-          <div className="fixed inset-0 overflow-auto">
+          <div className="fixed inset-0 overflow-auto ">
             <div className="flex min-h-full items-center justify-center  text-center">
               <Transition.Child
                 as={Fragment}
@@ -53,10 +53,10 @@ const CarDetailsModal = ({ car }: Props) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-[90vw] relative max-w-sm max-h-[94vh] transform overflow-hidden rounded-2xl bg-white    text-left align-middle shadow-xl transition-all  ">
+                <Dialog.Panel className="w-[90vw]   relative max-w-sm max-h-[94vh] transform overflow-hidden rounded-2xl bg-white    text-left  align-middle shadow-xl transition-all  ">
                   <Dialog.Title
                     as="div"
-                    className="w-full flex justify-end w-full   "
+                    className="w-full flex justify-end w-full    "
                   >
                     <Button
                       aria-label="close button"
@@ -110,7 +110,7 @@ const CarImags = ({ images }: { images: string[] }) => {
   };
 
   return (
-    <div className="w-full flex flex-col gap-4">
+    <div className="w-full  flex flex-col gap-4">
       <div className="w-full flex justify-center animate-fadeIn bg-primary rounded-md  ">
         <Image
           alt="image"
