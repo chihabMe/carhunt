@@ -73,7 +73,7 @@ const InfoItem = (
   },
 ) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: "all" });
+  const isInView = useInView(ref, { once: false, amount: "some" });
   const animate = useAnimation();
   useEffect(() => {
     if (isInView) {
