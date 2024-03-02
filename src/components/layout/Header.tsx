@@ -51,7 +51,7 @@ const Header = () => {
       <header className="flex items-center justify-between relative gap-2 px-4 py-4">
         <div>
           <Link href="/">
-            <Image src="/logo.svg" width={150} height={50} alt="car logo" />
+            <Image src="/logo.svg" width={150} height={22.5} alt="car logo" />
           </Link>
         </div>
         <nav className="hidden md:flex gap-8 font-semibold text-title">
