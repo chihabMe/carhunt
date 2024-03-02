@@ -49,7 +49,7 @@ const Introduction = () => {
             ullamco ut ea consectetur et est culpa et culpa duis.
           </p>
         </div>
-        <div className="grid grid-cols-2 pt-8 w-full max-w-screen-lg mx-auto gap-2 ">
+        <ul className="grid grid-cols-2 pt-8 w-full max-w-screen-lg mx-auto gap-2 ">
           {infos.map((item, idx) => (
             <InfoItem
               key={"info_" + idx}
@@ -59,7 +59,7 @@ const Introduction = () => {
               description={item.description}
             />
           ))}
-        </div>
+        </ul>
       </section>
     </Container>
   );

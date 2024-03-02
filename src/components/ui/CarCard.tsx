@@ -21,7 +21,7 @@ const CarCard = (props: Props) => {
           {props.car.make} {props.car.model}
         </h3>
         <Button
-          name="like"
+          aria-label="like"
           className="bg-transparent transition-all duration-300 active:!ring-red-400 group !p-1 rounded-full"
         >
           <HeartIcon className="w-6 h-6  transition-all duration-300  group-active:text-red-400 text-gray-400" />

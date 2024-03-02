@@ -21,7 +21,7 @@ const CarDetailsModal = ({ car }: Props) => {
   return (
     <>
       <Button
-        name="view more button"
+        aria-label="view more button"
         onClick={() => {
           onOpen();
         }}
@@ -59,7 +59,7 @@ const CarDetailsModal = ({ car }: Props) => {
                     className="w-full flex justify-end w-full   "
                   >
                     <Button
-                      name="close button"
+                      aria-label="close button"
                       onClick={onClose}
                       className="!px-1 absolute top-1 right-1 !py-1 rounded-full hover:!bg-red-400 group  !bg-light-bg outline-none dark:!bg-dark-bg"
                     >
@@ -145,14 +145,14 @@ const CarImags = ({ images }: { images: string[] }) => {
         </ul>
 
         <Button
-          name="scroll back button"
+          aria-label="scroll back button"
           onClick={scrollForward}
           className="!p-1 !bg-primary absolute top-1/2 -translate-y-1/2 right-1"
         >
           <ArrowRightIcon className="text-white w-5 h-5 " />
         </Button>
         <Button
-          name="go back button"
+          aria-label="go back button"
           onClick={scrollBackward}
           className="!p-1 !bg-primary absolute top-1/2 z-10 -translate-y-1/2 left-1"
         >

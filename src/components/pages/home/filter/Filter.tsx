@@ -71,7 +71,9 @@ const FilterSearch = () => {
     >
       <div className="flex gap-4 items-center w-full">
         <WrenchIcon className="w-5 h-5 text-gray-500" />
+        <label htmlFor="query" className="hidden" />
         <input
+          id="query"
           value={query}
           onChange={handleNameChange}
           type="text"
@@ -101,7 +103,7 @@ const FilterSearch = () => {
 const SearchButton = () => {
   return (
     <Button
-      name="search button"
+      aria-label="search button"
       className="  !px-3 !py-3 !bg-light-bg  dark:!bg-dark-bg  !rounded-full group hover:!bg-primary transition-all duration-200"
     >
       <MagnifyingGlassIcon className="w-5 h-5 text-white font-bold group-hover:text-white transition-all duration-200 " />
