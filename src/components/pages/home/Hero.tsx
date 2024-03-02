@@ -54,7 +54,7 @@ const Hero = () => {
           src={"/hero.webp"}
           alt="car image "
           width={500}
-          height={500}
+          height={295}
         />
       </motion.div>
       <div className="bg-primary absolute top-0 bottom-0  "></div>
