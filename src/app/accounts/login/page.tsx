@@ -16,6 +16,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import Image from "next/image";
 import { Link } from "next13-progressbar";
+import LoginReviews from "@/components/pages/login/LoginReviews";
 const schema = z.object({
   email: z.string().email(),
 });
@@ -32,9 +33,30 @@ const page = () => {
     console.log(values);
   };
   return (
-    <main>
+    <main className="relative ">
+      <div className="absolute    top-10 left-10 z-10 ">
+        <Link href="/">
+          <Image
+            alt="car logo"
+            src="/logo2.svg"
+            className="!text-black"
+            width={120}
+            height={120}
+          />
+        </Link>
+      </div>
       <section className="flex justify-between ">
-        <div className="w-1/2 hidden lg:flex bg-gray-900 min-h-screen">
+        <div className="w-1/2 relative hidden lg:flex bg-black min-h-screen relative">
+          <Image
+            className="top-1/2 absolute left-1/2 -translate-y-1/2 -translate-x-1/2"
+            alt="login page illustration"
+            src="/accounts/illustration.svg"
+            width={400}
+            height={400}
+          />
+          <div className="absolute bottom-14   left-1/2 -translate-x-1/2">
+            <LoginReviews />
+          </div>
         </div>
         <div className="w-full lg:w-1/2 flex px-0 flex-col gap-2 max-w-[580px] mx-auto pt-20 md:pt-36 lg:pt-52">
           <h1 className="text-black font-extrabold text-2xl md:text-3xl lg:text-4xl py-4">
