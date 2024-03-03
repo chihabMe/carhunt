@@ -100,12 +100,13 @@ const Header = () => {
                 <ul className="px-2 py-1 mt-12    flex flex-col     ">
                   <Menu.Item as="li">
                     <Button
+                      asChild
                       aria-label="to to signin"
-                      onClick={() => router.push("/accounts/signin")}
                       size="lg"
                       className="!bg-green-200"
                     >
-                      Sign in
+                      <Link href="/accounts/login">
+                      </Link>
                     </Button>
                   </Menu.Item>
                   {mobileNavLinks.map((item, idx) => (
@@ -130,10 +131,13 @@ const Header = () => {
         </div>
         <div className="hidden md:block">
           <Button
+            asChild
             aria-label="go to sign in "
             className=" !px-10  !font-bold !py-2.5 text-xs md:!px-6 md:!py-3"
           >
-            Sign in
+            <Link href="/accounts/login">
+              Sign in
+            </Link>
           </Button>
         </div>
       </header>
