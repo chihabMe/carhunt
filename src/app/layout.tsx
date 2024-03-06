@@ -6,6 +6,7 @@ import { Inter } from "next/font/google";
 import { SearchContextProvider } from "@/context/search.context";
 import ProgressBarProvider from "@/components/layout/ProgressBarProvider";
 import { SessionProvider } from "next-auth/react";
+import { TRPCReactProvider } from "@/trpc/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,14 +23,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`bg-light-bg dark:bg-dark-bg${inter.className}`}>
-        <SessionProvider>
-          <SearchContextProvider>
-            <ProgressBarProvider>
-              {children}
-              <Footer />
-            </ProgressBarProvider>
-          </SearchContextProvider>
-        </SessionProvider>
+        <TRPCReactProvider>
+          <SessionProvider>
+            <SearchContextProvider>
+              <ProgressBarProvider>
+                {children}
+                <Footer />
+              </ProgressBarProvider>
+            </SearchContextProvider>
+          </SessionProvider>
+        </TRPCReactProvider>
       </body>
     </html>
   );
