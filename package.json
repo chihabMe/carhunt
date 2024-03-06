@@ -21,6 +21,7 @@
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
+    "bcrypt": "^5.1.1",
     "camelize-ts": "^3.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -42,6 +43,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "prisma": "^5.10.2"
   }
 }
