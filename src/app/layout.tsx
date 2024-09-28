@@ -23,6 +23,7 @@ export default function RootLayout({
       <body className={`bg-light-bg dark:bg-dark-bg${inter.className}`}>
             <SearchContextProvider>
               <ProgressBarProvider>
+                <Header/>
                 {children}
                 <Footer />
               </ProgressBarProvider>
