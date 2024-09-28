@@ -18,7 +18,6 @@ const getCars = async (params: Record<string, string>): Promise<ICar[]> => {
   console.log("query", query);
 
   const url = `https://api.api-ninjas.com/v1/cars${query}`;
-  console.log("url", url);
   try {
     const response = await fetch(url, { ...options, cache: "no-cache" });
     if (!response.ok) throw new Error("unable to fetch data");
