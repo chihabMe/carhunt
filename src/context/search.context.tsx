@@ -1,4 +1,5 @@
 "use client";
+
 import ICar from "@/interfaces/ICar";
 import FuelType from "@/types/FuelType";
 import { useSearchParams } from "next/navigation";
@@ -9,6 +10,7 @@ import {
   createContext,
   useEffect,
 } from "react";
+
 interface SearchContextState {
   year: number | null;
   fuel: FuelType | null;
@@ -25,54 +27,47 @@ interface SearchContextState {
 
 const initialCars: ICar[] = [];
 
-const initialState: SearchContextState = {
-  fuel: null,
-  make: "make",
-  query: "",
-  year: null,
-  cars: initialCars,
-  setYear: () => {},
-  setFuel: () => {},
-  setQuery: () => {},
-  setMake: () => {},
-  isLoading: false,
-  search: () => {},
-};
-
-export const SearchContext = createContext(initialState); // Remove the type argument
+const SearchContext = createContext<SearchContextState | undefined>(undefined); // Remove default value
 
 export const SearchContextProvider = ({
   children,
 }: {
   children: ReactNode;
 }) => {
-  const [year, setYear] = useState(initialState.year);
-  const [fuel, setFuel] = useState(initialState.fuel);
-  const [query, setQuery] = useState(initialState.query);
-  const [make, setMake] = useState(initialState.make);
-  const [cars, setCars] = useState(initialState.cars);
+  const [year, setYear] = useState<number | null>(null);
+  const [fuel, setFuel] = useState<FuelType | null>(null);
+  const [query, setQuery] = useState<string>("");
+  const [make, setMake] = useState<string>("make");
+  const [cars, setCars] = useState<ICar[]>(initialCars);
   const [isLoading, setIsLoading] = useState(false);
+
   const params = useSearchParams();
 
+  // Simulated search function
   const search = () => {
-    if (query.trim() == "") setCars(initialState.cars);
-    else
-      setCars((prev) =>
-        initialCars.filter((item) => item.model.includes(query)),
-      );
+    setIsLoading(true);
+    if (query.trim() === "") {
+      setCars(initialCars);
+    } else {
+      setCars(initialCars.filter((item) => item.model.includes(query)));
+    }
+    setIsLoading(false);
   };
 
+  // Sync params with state
   useEffect(() => {
     const model = params.get("model");
     const year = params.get("year");
     const make = params.get("make");
     const fuel = params.get("fuel") as FuelType;
+
     if (model) setQuery(model);
     if (year) setYear(parseInt(year));
     if (make) setMake(make);
     if (fuel) setFuel(fuel);
-  }, [params, setQuery, setYear, setMake, setFuel]);
-  const value: SearchContextState = {
+  }, [params]);
+
+  const value = {
     year,
     fuel,
     query,
@@ -87,8 +82,16 @@ export const SearchContextProvider = ({
   };
 
   return (
-    <SearchContext.Provider value={value}>{children}</SearchContext.Provider>
+    <SearchContext.Provider value={value}>
+      {children}
+    </SearchContext.Provider>
   );
 };
 
-export const useSearchContext = () => useContext(SearchContext);
+export const useSearchContext = () => {
+  const context = useContext(SearchContext);
+  if (!context) {
+    throw new Error("useSearchContext must be used within a SearchContextProvider");
+  }
+  return context;
+};

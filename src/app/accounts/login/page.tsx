@@ -15,15 +15,15 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import Image from "next/image";
-import { Link } from "next13-progressbar";
 import LoginReviews from "@/components/pages/login/LoginReviews";
+import Link from "next/link";
 const schema = z.object({
   email: z.string().email(),
 });
 const defaultValues = {
   email: "",
 };
-const page = () => {
+const LoginPage = () => {
   const form = useForm<z.infer<typeof schema>>({
     //@ts-ignore
     resolver: zodResolver(schema),
@@ -134,7 +134,7 @@ const page = () => {
 
                 <div className="text-xs flex py-2  justify-center">
                   <p>
-                    Don't have an account ?
+                    Dont have an account ?
                     <Button
                       type="button"
                       variant="link"
@@ -155,4 +155,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default LoginPage;

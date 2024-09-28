@@ -15,8 +15,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import Image from "next/image";
-import { Link } from "next13-progressbar";
 import LoginReviews from "@/components/pages/login/LoginReviews";
+import Link from "next/link";
 const schema = z.object({
   username: z.string().min(5).max(15),
   email: z.string().email(),

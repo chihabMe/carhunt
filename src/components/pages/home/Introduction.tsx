@@ -5,7 +5,6 @@ import React, { useEffect, useRef } from "react";
 import {
   animate,
   motion,
-  useAnimate,
   useAnimation,
   useInView,
 } from "framer-motion";
@@ -87,7 +86,7 @@ const InfoItem = (
         x: 10,
       });
     }
-  }, [isInView]);
+  }, [isInView,animate]);
   return (
     <motion.li
       ref={ref}
