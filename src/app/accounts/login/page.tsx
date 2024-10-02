@@ -62,13 +62,13 @@ const LoginPage = () => {
           <h1 className="text-black font-extrabold text-2xl md:text-3xl lg:text-4xl py-4">
             Login to your account
           </h1>
-          <h3 className="text-gray-500 text-xs  font-medium">
+          <h3 className="text-gray-500   font-medium">
             Welcome back! Select a method to log in:
           </h3>
           <div className="flex items-center py-4 justify-between gap-4">
             <Button
               variant="outline"
-              className="w-1/2 flex items-center justify-center gap-2  py-2 text-xs h-8"
+              className="w-1/2  flex items-center justify-center gap-2  py-2 text-xs h-14"
             >
               <Image
                 alt="github image"
@@ -76,13 +76,11 @@ const LoginPage = () => {
                 width={15}
                 height={15}
               />
-              <span>
-                Github
-              </span>
+              <span>Github</span>
             </Button>
             <Button
               variant="outline"
-              className="w-1/2 flex items-center justify-center gap-2  py-2 text-xs h-8"
+              className="w-1/2 flex items-center justify-center gap-2  py-2 text-xs h-14"
             >
               <Image
                 alt="google image"
@@ -90,9 +88,7 @@ const LoginPage = () => {
                 width={15}
                 height={15}
               />
-              <span>
-                Google
-              </span>
+              <span>Google</span>
             </Button>
           </div>
           <div className="flex justify-between items-center gap-4">
@@ -113,13 +109,11 @@ const LoginPage = () => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-medium text-xs">
-                      Email
-                    </FormLabel>
+                    <FormLabel className="font-medium ">Email</FormLabel>
                     <FormControl>
                       <Input
                         placeholder="adam@email.com"
-                        className="text-xs h-9"
+                        className=" h-12 font-medium "
                         {...field}
                       />
                     </FormControl>
@@ -128,20 +122,20 @@ const LoginPage = () => {
                 )}
               />
               <div className="">
-                <Button className="bg-gray-900 w-full text-xs font-bold py-px">
+                <Button className="bg-gray-900 w-full h-12 text-xs font-bold py-px">
                   Sign in
                 </Button>
 
-                <div className="text-xs flex py-2  justify-center">
+                <div className=" flex py-2 font-medium  justify-center">
                   <p>
                     Dont have an account ?
                     <Button
                       type="button"
                       variant="link"
-                      className="text-xs px-2"
+                      className=" px-2 "
                     >
-                      <Link href="/accounts/signup">
-                        Create an account
+                      <Link href="/accounts/signup" className="font-medium">
+                        <span className="font-medium text-base">Create an account</span>
                       </Link>
                     </Button>
                   </p>
