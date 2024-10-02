@@ -41,7 +41,7 @@ const Hero = () => {
         >
           <Button
             aria-label="explore more button"
-            className="px-8 w-full max-w-[135px] py-3 !px-2"
+            className="  w-full max-w-[135px] py-3 !px-2"
           >
             Explore cars
           </Button>

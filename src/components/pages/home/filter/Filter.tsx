@@ -67,9 +67,9 @@ const FilterSearch = () => {
   return (
     <form
       onSubmit={handleFormSubmit}
-      className="flex flex-col sm:flex-row py-2  items-center gap-2 bg-gray-100 rounded-lg sm:rounded-full px-2.5  sm:px-8 w-full max-w-[620px]   "
+      className="flex flex-col sm:flex-row  py-2  items-center gap-4 sm:gap-2 bg-gray-100 rounded-lg sm:rounded-full px-2.5  sm:px-8 w-full max-w-[620px]   "
     >
-      <div className="flex gap-4 items-center w-full">
+      <div className="flex gap-4   items-center w-full">
         <WrenchIcon className="w-5 h-5 text-gray-500" />
         <label htmlFor="query" className="hidden" />
         <input
@@ -83,7 +83,7 @@ const FilterSearch = () => {
         />
         <SearchButton />
       </div>
-      <div className="flex gap-4 items-center w-full">
+      <div className="flex gap-4   items-center w-full">
         <Image
           src="/model-icon.png"
           width={25}

@@ -38,7 +38,7 @@ const Introduction = () => {
   return (
     <Container>
       <section className="">
-        <div className="py-2 w-full max-w-screen-md mx-auto text-center flex flex-col gap-4">
+        <div className="py-2 w-full max-w-screen-md mx-auto text-center  flex flex-col gap-4">
           <h1 className="text-gray-700 py-4 capitalize font-bold text-4xl">
             We provide you with the best deals
           </h1>
@@ -48,7 +48,7 @@ const Introduction = () => {
             ullamco ut ea consectetur et est culpa et culpa duis.
           </p>
         </div>
-        <ul className="grid grid-cols-2 pt-8 w-full  mx-auto gap-2 ">
+        <ul className="grid grid-cols-1 sm:grid-cols-2  pt-8 w-full  mx-auto gap-2 ">
           {infos.map((item, idx) => (
             <InfoItem
               key={"info_" + idx}
@@ -93,7 +93,7 @@ const InfoItem = (
       initial={{ opacity: 0, x: 10 }}
       animate={animate}
       transition={{ delay: 0.2 * idx }}
-      className="h-60 relative shadow shadow-sm  rounded-md list-none p-4  flex flex-col gap-2"
+      className="h-60 relative    rounded-md list-none p-4  flex flex-col gap-2"
     >
       <h1 className="text-gray-900 font-bold text-lg">
         {title}
@@ -102,7 +102,7 @@ const InfoItem = (
         {description}
       </p>
       <div className=" absolute bottom-0 right-0">
-        <Image alt={`${title} image`} width={240} height={240} src={image} />
+        <Image alt={`${title} image`} className="w-[170px]  sm:w-[190px] md:w-[210px] "  width={240} height={240} src={image} />
       </div>
     </motion.li>
   );

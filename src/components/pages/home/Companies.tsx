@@ -5,9 +5,9 @@ import React from "react";
 const Companies = () => {
   return (
     <Container>
-      <section className="flex w-full   justify-between  py-20   ">
-        <div className="flex gap-2  flex-col">
-          <h1 className="text-gray-900  font-bold py-4 capitalize text-4xl">
+      <section className="flex w-full flex-col gap-4 lg:gap-2 md:flex-row   justify-between  py-20   ">
+        <div className="flex gap-2 bg-blue-400  flex-col">
+          <h1 className="text-gray-900  font-bold py-4 capitalize text-2xl md:text-3xl lg:text-4xl">
             we only choose the best cars
             <br />
             for you
@@ -21,7 +21,7 @@ const Companies = () => {
             Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint
           </p>
         </div>
-        <div className="relative  h-[300px]  w-1/2 max-w-[400px]">
+        <div className="relative  h-[300px] w-full  bg-blue-400  md:w-1/2 max-w-[400px]">
           <Image
             className="absolute top-1 right-1"
             width={100}
