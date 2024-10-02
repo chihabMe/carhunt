@@ -59,7 +59,7 @@ const SignupPage = () => {
           <div className="flex items-center py-4 justify-between gap-4">
             <Button
               variant="outline"
-              className="w-1/2 flex items-center justify-center gap-2  py-2 text-xs h-8"
+              className="w-1/2 flex items-center justify-center gap-2  py-2 text-xs h-14"
             >
               <Image
                 alt="github image"
@@ -73,7 +73,7 @@ const SignupPage = () => {
             </Button>
             <Button
               variant="outline"
-              className="w-1/2 flex items-center justify-center gap-2  py-2 text-xs h-8"
+              className="w-1/2 flex items-center justify-center gap-2  py-2 text-xs h-14"
             >
               <Image
                 alt="google image"
@@ -104,13 +104,13 @@ const SignupPage = () => {
                 name="username"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-medium text-xs">
+                    <FormLabel className="font-medium ">
                       Username
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="adam"
-                        className="text-xs h-9"
+                        placeholder="Adam"
+                        className=" h-12"
                         {...field}
                       />
                     </FormControl>
@@ -124,13 +124,13 @@ const SignupPage = () => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-medium text-xs">
+                    <FormLabel className="font-medium ">
                       Email
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="adam@email.com"
-                        className="text-xs h-9"
+                        className=" h-12"
                         {...field}
                       />
                     </FormControl>
@@ -144,13 +144,13 @@ const SignupPage = () => {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-medium text-xs">
+                    <FormLabel className="font-medium ">
                       Password
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="password"
-                        className="text-xs h-9"
+                        placeholder="Password"
+                        className=" h-12"
                         {...field}
                       />
                     </FormControl>
@@ -164,13 +164,13 @@ const SignupPage = () => {
                 name="password2"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-medium text-xs">
+                    <FormLabel className="font-medium">
                       Password confirmation
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="password confirmation"
-                        className="text-xs h-9"
+                        placeholder="Password confirmation"
+                        className=" h-12"
                         {...field}
                       />
                     </FormControl>
@@ -180,20 +180,23 @@ const SignupPage = () => {
               />
 
               <div className="">
-                <Button className="bg-gray-900 w-full text-xs font-bold py-px">
+                <Button className="bg-gray-900 w-full  h-12 font-bold py-px">
                   Sign in
                 </Button>
 
-                <div className="text-xs flex py-2  justify-center">
+                <div className=" flex py-2  justify-center">
                   <p>
                     do you have an account ?
                     <Button
                       type="button"
                       variant="link"
-                      className="text-xs px-2"
+                      className=" px-2"
                     >
                       <Link href="/accounts/login">
+                      <span className="font-medium text-base">
+
                         login now
+                      </span>
                       </Link>
                     </Button>
                   </p>
